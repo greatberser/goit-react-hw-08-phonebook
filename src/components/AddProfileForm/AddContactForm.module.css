@@ -14,9 +14,19 @@
 }
 
 .submit{
-    width: 150px;
+    max-width: 190px;
+    background-color: white;
     padding: 10px 0;
-    background-color: #f4f4f4;
-    border: 1px solid black;
+    border: none;
     border-radius: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 700;
+    box-shadow: 0 0 5px rgba(31, 32, 32, 0.5); 
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.submit:focus,
+.submit:hover{
+    background-color: rgb(243, 240, 240);
 }

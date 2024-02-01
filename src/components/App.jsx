@@ -1,24 +1,57 @@
-import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { AddContactForm } from 'components/AddProfileForm/AddContactForm';
-import { ContactList } from 'components/ContactList/ContactList';
-import { Filter } from 'components/Filter/Filter';
-import { fetchContacts } from '../redux/operations';
+import { refreshUser } from '../redux/auth/operations';
+import { lazy, useEffect } from 'react';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
+import SharedLayout from './SharedLayout/SharedLayout';
+import { useAuth } from '../hooks';
 
+const Home = lazy(() => import('../pages/Home/Home'));
+const Register = lazy(() => import('../pages/Register/Register'));
+const Login = lazy(() => import('../pages/Login/Login'));
+const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <div className="container">
-      <h1>Phonebook</h1>
-      <AddContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </div>
+  return isRefreshing ? (
+    <b>Refresing user...</b>
+  ) : (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={<SharedLayout />}
+        >
+          <Route index element={<Home />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Register />} />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+            }
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };
+
+export default App;

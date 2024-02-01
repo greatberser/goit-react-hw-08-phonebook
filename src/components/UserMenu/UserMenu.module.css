@@ -1,0 +1,31 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.userName{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+
+.btnLogOut{
+    width: 85px;
+    height: 50px;
+    background-color: white;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 700;
+    box-shadow: 0 0 5px rgba(31, 32, 32, 0.5); 
+}
+
+.btnLogOut:hover,
+.btnLogOut:focus{
+    background-color: rgb(243, 240, 240);
+}

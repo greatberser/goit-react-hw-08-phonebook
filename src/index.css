@@ -7,7 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #b1b9c2;
+  color: #fff;
+  background-color: #16191c;
 }
 
 code {
@@ -18,7 +19,7 @@ code {
 .container{
   width: 400px;
   margin: 100px auto;
-  background-color: #fff;
+  background-color: #f39c12;
   padding: 20px;
   box-shadow: 0 0 10px #2e2f42b3;
   border-radius: 20px;

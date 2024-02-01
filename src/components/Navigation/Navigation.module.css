@@ -1,0 +1,19 @@
+.navMenu{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navLink{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.navLink:hover,
+.navLink:focus{
+    color: #9b59b6;
+}

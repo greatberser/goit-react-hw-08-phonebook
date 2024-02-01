@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import css from './AddContactForm.module.css';
-import { addContacts } from '../../redux/operations';
-import { selectContacts } from '../../redux/selectors';
+import { addContacts } from '../../redux/contacts/operations';
+import { selectContacts } from '../../redux/contacts/selectors';
 
 export const AddContactForm = () => {
   const dispatch = useDispatch();
