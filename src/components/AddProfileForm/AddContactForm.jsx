@@ -42,7 +42,7 @@ export const AddContactForm = () => {
         <Field
           type="tel"
           placeholder="111-11-11"
-          name="phone"
+          name="number"
           title="Number may contain only numbers and dashes. For example 111-11-11"
           required
         />
