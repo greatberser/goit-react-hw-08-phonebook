@@ -11,8 +11,8 @@ export const AddContactForm = () => {
 
   return (
     <Formik
-    initialValues={{ name: '', phone: '' }}
-    onSubmit={({ name, phone }, actions) => {
+    initialValues={{ name: '', number: '' }}
+    onSubmit={({ name, number }, actions) => {
       const existContact = contacts.find(
         (contact) => contact.name.toLowerCase() === name.toLowerCase()
       );
@@ -20,7 +20,7 @@ export const AddContactForm = () => {
       if (existContact) {
         alert(`${name} is already in contacts`);
       } else {
-        dispatch(addContacts({ name, phone }));
+        dispatch(addContacts({ name, number }));
         actions.resetForm();
       }
     }}
